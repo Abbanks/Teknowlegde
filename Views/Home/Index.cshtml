@@ -1,0 +1,25 @@
+﻿@using Teknowlegde.Models
+@model IEnumerable<StudentViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>All Students</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
