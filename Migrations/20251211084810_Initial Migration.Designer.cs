@@ -12,7 +12,7 @@ using Teknowlegde.Data;
 namespace Teknowlegde.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251211003026_InitialMigration")]
+    [Migration("20251211084810_Initial Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -31,9 +31,8 @@ namespace Teknowlegde.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Department")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Department")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -55,7 +54,7 @@ namespace Teknowlegde.Migrations
                         new
                         {
                             Id = new Guid("e244fc80-9ac4-44f7-9e6d-f29d207242e6"),
-                            Department = "IT",
+                            Department = 1,
                             Email = "john.doe@company.com",
                             FirstName = "John",
                             LastName = "Doe"
@@ -63,7 +62,7 @@ namespace Teknowlegde.Migrations
                         new
                         {
                             Id = new Guid("80b8344a-f3e9-44e8-8449-0576a44fa788"),
-                            Department = "HR",
+                            Department = 2,
                             Email = "jane.smith@company.com",
                             FirstName = "Jane",
                             LastName = "Smith"

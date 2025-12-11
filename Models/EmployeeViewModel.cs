@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Teknowlegde.Models.Enum;
 
 namespace Teknowlegde.Models
 {
@@ -18,11 +19,10 @@ namespace Teknowlegde.Models
 
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
-        [StringLength(100)]
+        [StringLength(50)]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Department is required")]
-        [StringLength(50)]
-        public string Department { get; set; }
+        public Department Department { get; set; }
     }
 }

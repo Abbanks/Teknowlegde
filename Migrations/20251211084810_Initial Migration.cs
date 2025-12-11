@@ -21,7 +21,7 @@ namespace Teknowlegde.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Department = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Department = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,8 +33,8 @@ namespace Teknowlegde.Migrations
                 columns: new[] { "Id", "Department", "Email", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { new Guid("80b8344a-f3e9-44e8-8449-0576a44fa788"), "HR", "jane.smith@company.com", "Jane", "Smith" },
-                    { new Guid("e244fc80-9ac4-44f7-9e6d-f29d207242e6"), "IT", "john.doe@company.com", "John", "Doe" }
+                    { new Guid("80b8344a-f3e9-44e8-8449-0576a44fa788"), 2, "jane.smith@company.com", "Jane", "Smith" },
+                    { new Guid("e244fc80-9ac4-44f7-9e6d-f29d207242e6"), 1, "john.doe@company.com", "John", "Doe" }
                 });
         }
 

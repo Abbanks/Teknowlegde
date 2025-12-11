@@ -1,4 +1,6 @@
-﻿namespace Teknowlegde.Data.Entity
+﻿using Teknowlegde.Models.Enum;
+
+namespace Teknowlegde.Data.Entity
 {
     public class Employee
     {
@@ -6,6 +8,6 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Department { get; set; }
+        public Department Department { get; set; }
     }
 }

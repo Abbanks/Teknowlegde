@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Teknowlegde.Data.Entity;
+using Teknowlegde.Models.Enum;
 
 namespace Teknowlegde.Data
 {
@@ -22,7 +23,7 @@ namespace Teknowlegde.Data
                     FirstName = "John",
                     LastName = "Doe",
                     Email = "john.doe@company.com",
-                    Department = "IT"
+                    Department = Department.IT
                 },
                 new Employee
                 {
@@ -30,7 +31,7 @@ namespace Teknowlegde.Data
                     FirstName = "Jane",
                     LastName = "Smith",
                     Email = "jane.smith@company.com",
-                    Department = "HR"
+                    Department = Department.HR
                 }
             );
         }
