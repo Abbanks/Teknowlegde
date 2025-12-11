@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Teknowlegde.Data;
+using Teknowlegde.Services;
+using Teknowlegde.Services.Interface;
 
 namespace Teknowlegde
 {
@@ -9,17 +11,15 @@ namespace Teknowlegde
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Db"));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            using (var scope = app.Services.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                DataSeeder.Seed(db);
-            }
+            builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
+            var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -37,7 +37,7 @@ namespace Teknowlegde
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Employee}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
             app.Run();
